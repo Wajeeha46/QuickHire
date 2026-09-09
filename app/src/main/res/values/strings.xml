@@ -40,7 +40,7 @@
     <string name="currently_hired">Currently Hired</string>
     <string name="already_hired">Already Hired</string>
     <string name="worker_data_unavailable">Worker data not available</string>
-    <string name="hourly_rate_format">₹%.2f/hour</string>
+    <string name="hourly_rate_format">PKR %.2f/hour</string>
     <string name="hiring_success">Successfully hired %s</string>
     <string name="hiring_failed">Hiring failed: %s</string>
     <string name="contact_information">Contact Information</string>

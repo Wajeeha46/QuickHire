@@ -54,7 +54,7 @@ public class WorkerProfileActivity extends AppCompatActivity {
         nameText.setText(worker.getName());
         categoryText.setText(worker.getCategory());
         ratingBar.setRating((float) worker.getRating());
-        rateText.setText(getString(R.string.hourly_rate_format, worker.getHourlyRate()));
+        rateText.setText(String.format(java.util.Locale.getDefault(), "PKR %.2f/hour", worker.getHourlyRate()));
 
         // Update availability status
         if (worker.isAvailable()) {

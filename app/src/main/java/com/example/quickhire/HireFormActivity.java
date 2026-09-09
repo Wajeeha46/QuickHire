@@ -208,12 +208,12 @@ public class HireFormActivity extends AppCompatActivity {
         } else {
             try {
                 int hoursValue = Integer.parseInt(hours);
-                if (hoursValue <= 0) {
-                    etHours.setError("Must be greater than 0");
+                if (hoursValue < 1 || hoursValue > 24) {
+                    etHours.setError("Enter a valid hour value between 1 and 24");
                     valid = false;
                 }
             } catch (NumberFormatException e) {
-                etHours.setError("Invalid number");
+                etHours.setError("Enter a valid hour value between 1 and 24");
                 valid = false;
             }
         }
@@ -221,8 +221,8 @@ public class HireFormActivity extends AppCompatActivity {
         if (phone.isEmpty()) {
             etPhone.setError("Phone required");
             valid = false;
-        } else if (!phone.matches("^[0-9+()\\-\\s]{7,20}$")) {
-            etPhone.setError("Enter a valid phone number");
+        } else if (!phone.matches("^03\\d{9}$")) {
+            etPhone.setError("Enter valid 11-digit number starting with 03");
             valid = false;
         }
 

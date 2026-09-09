@@ -214,8 +214,8 @@ public class SignupActivity extends AppCompatActivity {
         if (phone.isEmpty()) {
             phoneEditText.setError("Phone is required");
             isValid = false;
-        } else if (!phone.matches("^[0-9+()\\-\\s]{7,20}$")) {
-            phoneEditText.setError("Enter a valid phone number");
+        } else if (!phone.matches("^03\\d{9}$")) {
+            phoneEditText.setError("Enter valid 11-digit number starting with 03");
             isValid = false;
         }
 

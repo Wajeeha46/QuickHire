@@ -73,7 +73,7 @@ public class WorkerAdapter extends RecyclerView.Adapter<WorkerAdapter.ViewHolder
 
         holder.workerName.setText(worker.getName() != null ? worker.getName() : "Unknown Worker");
         holder.workerRating.setText(String.format(Locale.getDefault(), "%.1f", worker.getRating()));
-        holder.workerRate.setText(String.format(Locale.getDefault(), "%.0f PKR/hr", worker.getHourlyRate()));
+        holder.workerRate.setText(String.format(Locale.getDefault(), "PKR %.0f/hr", worker.getHourlyRate()));
 
         boolean isAvailable = worker.isAvailable();
         holder.availabilityDot.setVisibility(View.VISIBLE); // Always show dot
