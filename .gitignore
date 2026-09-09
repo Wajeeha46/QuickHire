@@ -1,0 +1,45 @@
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+.gradle/
+local.properties
+/captures/
+/build/
+**/build/
+
+# Kotlin / Java
+*.class
+*.dex
+*.apk
+*.aar
+*.jks
+*.keystore
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Firebase / generated files
+google-services.json
+app/google-services.json
+/app/release/
+
+# Logs
+*.log
+
+# Gradle
+.gradle/
+**/gradle-wrapper.jar
+**/gradle-wrapper.properties
+
+# Android generated files
+*.bin
+*.lock
+
+# Project-specific
+*.orig
+
+# Keep only source files, not generated output
+# (When needed, add generated files here if they are intentionally checked in)

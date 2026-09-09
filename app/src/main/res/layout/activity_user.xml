@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#FFFFFF">
+
+    <!-- User Info Header -->
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User Profile"
+        android:textSize="22sp"
+        android:textColor="#5C2D87"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <!-- User Info Section -->
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textColor="#5C2D87"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvUserEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textColor="#5C2D87"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvUserPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phone"
+        android:textColor="#5C2D87"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvUserAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:textColor="#5C2D87"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Active Hires Label -->
+    <TextView
+        android:id="@+id/tvNoWorkerHired"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No active hires"
+        android:textSize="18sp"
+        android:textColor="#999999"
+        android:gravity="center"
+        android:layout_marginTop="24dp" />
+
+    <!-- Active Hires RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activeHiresRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#F3F3F3"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:elevation="2dp" />
+
+</LinearLayout>

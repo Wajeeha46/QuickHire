@@ -1,0 +1,17 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="form_padding">24dp</dimen>
+    <dimen name="login_padding">20dp</dimen>
+    <dimen name="title_margin_top">0dp</dimen>
+    <dimen name="input_margin_top">20dp</dimen>
+    <dimen name="password_margin_top">10dp</dimen>
+    <dimen name="button_margin_top">20dp</dimen>
+    //categories
+
+        <dimen name="category_padding">16dp</dimen>
+        <dimen name="category_text_size">20sp</dimen>
+        <dimen name="category_margin_top">16dp</dimen>
+        <dimen name="category_margin_bottom">8dp</dimen>
+        <dimen name="recycler_view_height">120dp</dimen>
+
+</resources>

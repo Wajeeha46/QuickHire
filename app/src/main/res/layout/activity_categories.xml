@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/category_padding">
+
+        <!-- Maid Category -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/maid_category"
+            android:textSize="@dimen/category_text_size"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/category_margin_bottom"
+            tools:ignore="HardcodedText"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/maidRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/recycler_view_height"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:contentDescription="@string/maid_workers_list"/>
+
+        <!-- Driver Category -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/driver_category"
+            android:textSize="@dimen/category_text_size"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/category_margin_top"
+            android:layout_marginBottom="@dimen/category_margin_bottom"
+            tools:ignore="HardcodedText"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/driverRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/recycler_view_height"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:contentDescription="@string/driver_workers_list"/>
+
+        <!-- Chef Category -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chef_category"
+            android:textSize="@dimen/category_text_size"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/category_margin_top"
+            android:layout_marginBottom="@dimen/category_margin_bottom"
+            tools:ignore="HardcodedText"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chefRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/recycler_view_height"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:contentDescription="@string/chef_workers_list"/>
+
+        <!-- Hairdresser Category -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hairdresser_category"
+            android:textSize="@dimen/category_text_size"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/category_margin_top"
+            android:layout_marginBottom="@dimen/category_margin_bottom"
+            tools:ignore="HardcodedText"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/hairdresserRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/recycler_view_height"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:contentDescription="@string/hairdresser_workers_list"/>
+
+        <!-- Tailor Category -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tailor_category"
+            android:textSize="@dimen/category_text_size"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/category_margin_top"
+            android:layout_marginBottom="@dimen/category_margin_bottom"
+            tools:ignore="HardcodedText"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tailorRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/recycler_view_height"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:contentDescription="@string/tailor_workers_list"/>
+
+        <!-- Plumber Category -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/plumber_category"
+            android:textSize="@dimen/category_text_size"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/category_margin_top"
+            android:layout_marginBottom="@dimen/category_margin_bottom"
+            tools:ignore="HardcodedText"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/plumberRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/recycler_view_height"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:contentDescription="@string/plumber_workers_list"/>
+    </LinearLayout>
+</ScrollView>
