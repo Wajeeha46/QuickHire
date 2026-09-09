@@ -1,4 +1,4 @@
-package com.example.quickhire.models;
+package com.wajeeha.quickhire.models;
 
 import com.google.firebase.firestore.ServerTimestamp;
 import java.util.Date;

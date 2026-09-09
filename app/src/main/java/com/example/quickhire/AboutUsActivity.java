@@ -1,4 +1,4 @@
-package com.example.quickhire;
+package com.wajeeha.quickhire;
 
 import android.os.Bundle;
 import android.view.animation.Animation;

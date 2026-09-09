@@ -1,4 +1,4 @@
-package com.example.quickhire;
+package com.wajeeha.quickhire;
 
 import android.Manifest;
 import android.app.ProgressDialog;
@@ -19,7 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import com.example.quickhire.models.Worker;
+import com.wajeeha.quickhire.models.Worker;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.firebase.auth.FirebaseAuth;
@@ -221,8 +221,8 @@ public class HireFormActivity extends AppCompatActivity {
         if (phone.isEmpty()) {
             etPhone.setError("Phone required");
             valid = false;
-        } else if (!Patterns.PHONE.matcher(phone).matches()) {
-            etPhone.setError("Invalid phone number");
+        } else if (!phone.matches("^[0-9+()\\-\\s]{7,20}$")) {
+            etPhone.setError("Enter a valid phone number");
             valid = false;
         }
 
@@ -250,6 +250,13 @@ public class HireFormActivity extends AppCompatActivity {
         // Calculate expiry time
         int hours = Integer.parseInt(etHours.getText().toString());
         Date expiryTime = new Date(System.currentTimeMillis() + (hours * 3600 * 1000));
+        String workerId = worker.getId() != null ? worker.getId() : "";
+
+        if (workerId.isEmpty()) {
+            progressDialog.dismiss();
+            Toast.makeText(this, "Worker information is incomplete. Please try again.", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         // Create hire data
         Map<String, Object> hireData = new HashMap<>();
@@ -258,14 +265,14 @@ public class HireFormActivity extends AppCompatActivity {
         hireData.put("hours", hours);
         hireData.put("phone", etPhone.getText().toString().trim());
         hireData.put("email", etEmail.getText().toString().trim());
-        hireData.put("workerId", worker.getId());
+        hireData.put("workerId", workerId);
         hireData.put("userId", currentUser.getUid());
         hireData.put("expiryTime", expiryTime);
         hireData.put("status", "active");
         hireData.put("createdAt", FieldValue.serverTimestamp());
-        hireData.put("workerName", worker.getName());
-        hireData.put("workerEmail", worker.getEmail());
-        hireData.put("workerPhone", worker.getPhone());
+        hireData.put("workerName", worker.getName() != null ? worker.getName() : "Unknown Worker");
+        hireData.put("workerEmail", worker.getEmail() != null ? worker.getEmail() : "");
+        hireData.put("workerPhone", worker.getPhone() != null ? worker.getPhone() : "");
 
         // Update worker status
         Map<String, Object> workerUpdates = new HashMap<>();
@@ -278,7 +285,7 @@ public class HireFormActivity extends AppCompatActivity {
         db.collection("hires").add(hireData)
                 .addOnSuccessListener(hireRef -> {
                     // Then update worker status
-                    db.collection("workers").document(worker.getId())
+                    db.collection("workers").document(workerId)
                             .update(workerUpdates)
                             .addOnSuccessListener(aVoid -> {
                                 // Update hire document with its ID
@@ -288,18 +295,24 @@ public class HireFormActivity extends AppCompatActivity {
                                             Toast.makeText(this, "Hired successfully!", Toast.LENGTH_SHORT).show();
                                             setResult(RESULT_OK);
                                             finish();
+                                        })
+                                        .addOnFailureListener(e -> {
+                                            progressDialog.dismiss();
+                                            Toast.makeText(this, "Hire created, but status update failed.", Toast.LENGTH_LONG).show();
+                                            setResult(RESULT_OK);
+                                            finish();
                                         });
                             })
                             .addOnFailureListener(e -> {
                                 progressDialog.dismiss();
                                 Log.e(TAG, "Error updating worker: ", e);
                                 hireRef.delete();
-                                Toast.makeText(this, "Failed to update worker: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(this, "Failed to update worker: " + (e.getMessage() != null ? e.getMessage() : "Unknown error"), Toast.LENGTH_LONG).show();
                             });
                 })
                 .addOnFailureListener(e -> {
                     progressDialog.dismiss();
-                    Toast.makeText(this, "Failed to create hire: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Failed to create hire: " + (e.getMessage() != null ? e.getMessage() : "Unknown error"), Toast.LENGTH_LONG).show();
                 });
     }
 

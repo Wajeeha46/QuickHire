@@ -1,4 +1,4 @@
-package com.example.quickhire;
+package com.wajeeha.quickhire;
 
 import android.content.Intent;
 import android.media.MediaPlayer;

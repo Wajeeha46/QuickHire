@@ -1,4 +1,4 @@
-package com.example.quickhire;
+package com.wajeeha.quickhire;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import com.example.quickhire.adapters.WorkerAdapter;
-import com.example.quickhire.databinding.FragmentFirstBinding;
-import com.example.quickhire.models.Worker;
+import com.wajeeha.quickhire.adapters.WorkerAdapter;
+import com.wajeeha.quickhire.databinding.FragmentFirstBinding;
+import com.wajeeha.quickhire.models.Worker;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;

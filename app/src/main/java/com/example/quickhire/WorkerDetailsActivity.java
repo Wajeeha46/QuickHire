@@ -1,4 +1,4 @@
-package com.example.quickhire;
+package com.wajeeha.quickhire;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
-import com.example.quickhire.models.Worker;
+import com.wajeeha.quickhire.models.Worker;
 
 public class WorkerDetailsActivity extends AppCompatActivity {
     private MediaPlayer buttonSound;

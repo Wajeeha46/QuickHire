@@ -1,4 +1,4 @@
-package com.example.quickhire;
+package com.wajeeha.quickhire;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -132,6 +132,9 @@ public class UserActivity extends AppCompatActivity {
 
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             try {
+                                Long hoursValue = document.getLong("hours");
+                                int hours = hoursValue != null ? Math.max(1, hoursValue.intValue()) : 1;
+
                                 ActiveHire hire = new ActiveHire(
                                         document.getString("workerId"),
                                         document.getString("customerName"),
@@ -140,7 +143,7 @@ public class UserActivity extends AppCompatActivity {
                                         document.getString("email"),
                                         document.getDate("expiryTime"),
                                         calculateArrivalTime(document),
-                                        document.getLong("hours").intValue()
+                                        hours
                                 );
                                 activeHires.add(hire);
                             } catch (Exception e) {
@@ -162,8 +165,12 @@ public class UserActivity extends AppCompatActivity {
     private Date calculateArrivalTime(QueryDocumentSnapshot document) {
         try {
             Date createdAt = document.getDate("createdAt");
-            long hours = document.getLong("hours");
-            long arrivalMillis = (long) (hours * 3600000 * 0.02); // 2% of total time
+            if (createdAt == null) {
+                createdAt = new Date();
+            }
+            Long hours = document.getLong("hours");
+            long safeHours = hours != null ? Math.max(1L, hours) : 1L;
+            long arrivalMillis = (long) (safeHours * 3600000 * 0.02); // 2% of total time
             return new Date(createdAt.getTime() + arrivalMillis);
         } catch (Exception e) {
             Log.e(TAG, "Error calculating arrival time", e);

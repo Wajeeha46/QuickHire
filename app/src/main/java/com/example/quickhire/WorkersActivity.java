@@ -1,4 +1,4 @@
-package com.example.quickhire;
+package com.wajeeha.quickhire;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.quickhire.adapters.WorkerAdapter;
-import com.example.quickhire.models.Worker;
+import com.wajeeha.quickhire.adapters.WorkerAdapter;
+import com.wajeeha.quickhire.models.Worker;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;

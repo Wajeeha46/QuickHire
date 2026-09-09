@@ -1,4 +1,4 @@
-package com.example.quickhire.adapters;
+package com.wajeeha.quickhire.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,10 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.quickhire.GlideApp;
-import com.example.quickhire.HireFormActivity;
-import com.example.quickhire.R;
-import com.example.quickhire.models.Worker;
+import com.wajeeha.quickhire.GlideApp;
+import com.wajeeha.quickhire.HireFormActivity;
+import com.wajeeha.quickhire.R;
+import com.wajeeha.quickhire.models.Worker;
 
 import java.util.ArrayList;
 import java.util.Date;

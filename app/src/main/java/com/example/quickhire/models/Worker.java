@@ -1,4 +1,4 @@
-package com.example.quickhire.models;
+package com.wajeeha.quickhire.models;
 
 import java.io.Serializable;
 import java.util.Date;

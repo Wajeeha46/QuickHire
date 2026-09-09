@@ -1,4 +1,4 @@
-package com.example.quickhire;
+package com.wajeeha.quickhire;
 
 import android.Manifest;
 import android.app.ProgressDialog;
@@ -214,8 +214,8 @@ public class SignupActivity extends AppCompatActivity {
         if (phone.isEmpty()) {
             phoneEditText.setError("Phone is required");
             isValid = false;
-        } else if (!Patterns.PHONE.matcher(phone).matches()) {
-            phoneEditText.setError("Invalid phone number");
+        } else if (!phone.matches("^[0-9+()\\-\\s]{7,20}$")) {
+            phoneEditText.setError("Enter a valid phone number");
             isValid = false;
         }
 
@@ -226,6 +226,9 @@ public class SignupActivity extends AppCompatActivity {
 
         if (email.isEmpty()) {
             emailEditText.setError("Email is required");
+            isValid = false;
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            emailEditText.setError("Enter a valid email address");
             isValid = false;
         }
 
@@ -277,8 +280,10 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void handleSignupFailure(Exception exception) {
-        Toast.makeText(this, "Signup failed: " + exception.getMessage(),
-                Toast.LENGTH_LONG).show();
+        String message = exception != null && exception.getMessage() != null
+                ? exception.getMessage()
+                : "Unable to create account. Please try again.";
+        Toast.makeText(this, "Signup failed: " + message, Toast.LENGTH_LONG).show();
     }
 
     private void saveUserToFirestore(String userId, String email, String name, String phone, String address) {

@@ -1,9 +1,10 @@
-package com.example.quickhire;
+package com.wajeeha.quickhire;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -84,8 +85,16 @@ public class LoginActivity extends AppCompatActivity {
             emailEditText.setError("Email is required");
             return false;
         }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            emailEditText.setError("Enter a valid email address");
+            return false;
+        }
         if (password.isEmpty()) {
             passwordEditText.setError("Password is required");
+            return false;
+        }
+        if (password.length() < 6) {
+            passwordEditText.setError("Password must be at least 6 characters");
             return false;
         }
         return true;
@@ -112,8 +121,10 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
                     } else {
-                        Toast.makeText(this, "Login failed: " +
-                                task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        String errorMessage = task.getException() != null
+                                ? task.getException().getMessage()
+                                : "Unable to log in. Please try again.";
+                        Toast.makeText(this, "Login failed: " + errorMessage, Toast.LENGTH_SHORT).show();
                     }
                 });
     }

@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.quickhire"
+    namespace = "com.wajeeha.quickhire"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.quickhire"
+        applicationId = "com.wajeeha.quickhire"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
