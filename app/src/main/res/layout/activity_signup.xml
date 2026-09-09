@@ -3,24 +3,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/white">
+    android:background="#F5F1FB"
+    android:padding="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="vertical"
-        android:padding="@dimen/form_padding"
-        android:gravity="center">
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:padding="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/image1"
+            android:contentDescription="QuickHire logo"
+            android:layout_marginBottom="12dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:textSize="24sp"
+            android:text="Create account"
+            android:textColor="#1F1B2D"
+            android:textSize="28sp"
             android:textStyle="bold"
-            android:layout_marginBottom="24dp"/>
+            android:layout_gravity="center_horizontal"/>
 
-        <!-- Name Field -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Join QuickHire"
+            android:textColor="#6B7280"
+            android:textSize="14sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="18dp"/>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,7 +58,6 @@
                 android:inputType="textPersonName"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Phone Field -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,7 +74,6 @@
                 android:maxLength="11"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Address Field with Location Button -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,7 +103,6 @@
                 android:contentDescription="Use current location"/>
         </RelativeLayout>
 
-        <!-- Email Field -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -97,7 +117,6 @@
                 android:inputType="textEmailAddress"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Password Fields (existing) -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordInputLayout"
             android:layout_width="match_parent"
@@ -132,7 +151,6 @@
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Login link (existing) -->
         <TextView
             android:id="@+id/tv_login"
             android:layout_width="wrap_content"
@@ -146,7 +164,6 @@
             android:minWidth="48dp"
             android:minHeight="48dp"/>
 
-        <!-- Signup button (existing) -->
         <Button
             android:id="@+id/btnsignup"
             android:layout_width="match_parent"
@@ -154,6 +171,7 @@
             android:text="Sign Up"
             android:backgroundTint="@color/purple"
             android:textColor="@color/white"
+            android:textStyle="bold"
             android:layout_marginTop="8dp"/>
     </LinearLayout>
 </ScrollView>
